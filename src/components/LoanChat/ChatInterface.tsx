@@ -6,6 +6,7 @@ import { generateTTS } from '@/utils/tts';
 import { LANGUAGES } from '@/components/LoanGuide/data';
 import { transcribeAudio } from '@/utils/stt';
 import { Mic, Square, Volume2, Globe, FileText, Download, Play, Pause, RotateCcw, X, MessageCircle, List, ChevronDown, Headphones, ArrowRight, Box, BarChart, CheckCircle2, ChevronLeft, LayoutGrid, PieChart } from 'lucide-react';
+import { API_BASE_URL } from '@/config/api';
 
 // Define and export the Message type
 export type Message = {
@@ -396,7 +397,7 @@ export default function ChatInterface() {
   const generateVisualization = async () => {
     try {
       setIsVisualizing(true);
-      const response = await fetch('/api/visualize-chat', {
+      const response = await fetch(`${API_BASE_URL}/api/visualize-chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -487,7 +488,7 @@ export default function ChatInterface() {
       setSummaryData(null); // Reset previous data
       setIsSummaryOpen(true);
 
-      const response = await fetch('/api/summarize-chat', {
+      const response = await fetch(`${API_BASE_URL}/api/summarize-chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

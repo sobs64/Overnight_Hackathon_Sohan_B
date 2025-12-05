@@ -3,17 +3,24 @@ import PersonalLoanUI from '@/components/LoanGuide/PersonalLoan/PersonalLoanUI';
 import BusinessLoanUI from '@/components/LoanGuide/BusinessLoan/BusinessLoanUI';
 import EducationLoanUI from '@/components/LoanGuide/EducationLoan/EducationLoanUI';
 
-interface PageProps {
-  params: { loanType: string }
-  searchParams: { lang?: string }
+export function generateStaticParams() {
+  return [
+    { loanType: 'personal' },
+    { loanType: 'business' },
+    { loanType: 'education' },
+  ];
 }
 
-export default async function LoanTypePage({ params, searchParams }: PageProps) {
+export default async function LoanTypePage({
+  params,
+}: {
+  params: Promise<{ loanType: string }>;
+}) {
   const { loanType } = await params;
-  const { lang } = await searchParams;
-  
+
   // Validate language and set default to 'en' if not provided
-  const language = lang || 'en';
+  // Note: searchParams are not supported in static export
+  const language = 'en';
 
   if (!['personal', 'business', 'education'].includes(loanType.toLowerCase())) {
     return notFound();

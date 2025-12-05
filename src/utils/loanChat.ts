@@ -1,6 +1,8 @@
+import { API_BASE_URL } from '@/config/api';
+
 export const sendChatMessage = async (userId: string, message: string, languageCode: string) => {
   try {
-    const response = await fetch('/api/chat', {
+    const response = await fetch(`${API_BASE_URL}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

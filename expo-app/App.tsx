@@ -2,14 +2,17 @@ import React from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-// Replace with your deployed Vercel URL
-const APP_URL = 'https://trustwise-ai.vercel.app'; // placeholder
+// Load from deployed Vercel URL
+const APP_URL = 'https://trustwise-ai.vercel.app';
 
 export default function App() {
     return (
         <View style={styles.container}>
             <WebView
                 source={{ uri: APP_URL }}
+                originWhitelist={['*']}
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
                 startInLoadingState={true}
                 renderLoading={() => (
                     <ActivityIndicator

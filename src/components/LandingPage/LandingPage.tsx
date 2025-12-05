@@ -383,7 +383,7 @@ const LandingPage: React.FC = () => {
                                         transition={{ duration: 0.5, delay: 0.8 }}
                                         className="bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg rounded-tl-none p-3 max-w-xs shadow-sm"
                                     >
-                                        <p className="text-gray-700 text-sm">Hello! I'm TrustWise AI. How can I help with your loan needs today?</p>>
+                                        <p className="text-gray-700 text-sm">Hello! I'm TrustWise AI. How can I help with your loan needs today?</p>
                                     </motion.div>
 
                                     <motion.div
