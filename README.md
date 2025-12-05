@@ -9,31 +9,40 @@ TrustWise AI is a multilingual conversational AI assistant designed to help user
 
 ## Features
 
-### 1. Multilingual Voice and Text Support
-- Natural conversation in 10+ languages with regional financial terminology
-- Support for both voice and text inputs
-- Cultural nuances built-in for better user experience
+### 1. Multilingual Voice-First Loan Guide (`/loan-guide`)
+- **Interactive Voice Agent**: A step-by-step guide that mimics a real loan officer. It asks questions in the user's preferred language using **Sarvam AI's** high-quality Text-to-Speech (TTS).
+- **Real-Time Speech Recognition**: Users can answer naturally with their voice. The system records, processes, and transcribes audio in real-time using Sarvam AI's Speech-to-Text (STT).
+- **Hybrid Interaction**: Seamlessly switch between voice and text inputs during the application process.
 
-### 2. Intelligent Eligibility Assessment
-- Prequalification with minimal personal information
-- Transparent scoring factors with improvement roadmap
-- Side-by-side eligible loan options from multiple banks
+### 2. Intelligent Loan Prediction Engine
+- **Smart Analysis**: The `/api/predict-loan` endpoint analyzes the structured data gathered from the user's conversation.
+- **Tailored Recommendations**: Suggests specific loan types (Home, Personal, Education, etc.) based on income, requirements, and profile.
+- **Visual Feedback**: Provides immediate feedback and routing to relevant loan details.
 
-### 3. Virtual Loan Application Process
-- Dynamic step-by-step real loan application guidance
-- Interactive visuals including flowcharts
-- Summary report generation for future reference
+### 3. Conversational AI Assistant (`/loan-chat`)
+- **Context-Aware Chat**: Powered by **LangChain** and **OpenAI GPT-4**, the assistant understands context and previous interactions.
+- **Financial Domain Knowledge**: Specifically tuned to answer queries about interest rates, EMI calculations, and documentation requirements.
+- **Multilingual Support**: Breaks down language barriers by communicating in regional languages.
 
 ### 4. Financial Empowerment Hub
-- Jargon-free financial education
-- Interactive calculators for real impact visualization
-- Personalized AI financial advisory
+- **Jargon-Free Education**: Simplifies complex financial terms for first-time borrowers.
+- **Interactive Tools**: Includes visualizers and calculators to help users plan their finances better.
 
-### 5. Interactive Visualizers
-- Tax bracket visualization
-- SIP calculator
-- Emergency fund planning
-- Budget allocation tools
+## Hackathon Project Review
+
+### What We Built
+During this hackathon, we focused on solving the **accessibility gap** in financial services. We built **TrustWise AI**, a platform that doesn't just digitize forms but "humanizes" the digital experience through voice.
+
+### Key Achievements
+- **End-to-End Voice Integration**: Successfully integrated **Sarvam AI** to enable a truly conversational experience in Indian languages, moving beyond simple text chatbots.
+- **Dynamic Loan Guide Flow**: Implemented a state-aware questionnaire engine (`LoanGuide.tsx`) that manages the flow of conversation, handles audio recording states, and aggregates user data for analysis.
+- **Real-Time Processing**: Overcame challenges with browser-based audio recording and API latency to create a smooth user experience.
+- **PWA Implementation**: Built as a responsive Web Application to ensure accessibility across all devices without requiring app store downloads.
+
+### Technical Highlights
+- **Architecture**: A robust Next.js 15 application leveraging Server Actions and API routes for a secure backend.
+- **AI Orchestration**: Used LangChain to manage prompt engineering and model interactions, ensuring accurate financial advice.
+- **State Management**: Complex frontend state management to handle the asynchronous nature of voice recording, TTS playback, and API loading states.
 
 ## Technical Architecture
 
@@ -151,6 +160,27 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 npm run build
 npm start
 ```
+
+## How to Use TrustWise AI
+
+### 1. Start with the Loan Guide
+- Navigate to the **Loan Guide** section from the home page.
+- **Select your language** (e.g., Hindi, Tamil, English).
+- The AI will greet you audibly. **Speak your answer** clearly when the microphone icon pulses red.
+- You can also **type your answer** if you prefer.
+- Answer the questions about your income, age, and loan needs.
+- At the end, click **"Predict Loan Type"** to see your personalized recommendation.
+
+### 2. Chat with the Advisor
+- Go to the **Loan Chat** page (`/loan-chat`).
+- Ask any specific questions like *"What is the current home loan interest rate?"* or *"How much EMI will I pay for 5 lakhs?"*.
+- The bot will remember your context from the Loan Guide if you've completed it.
+
+### 3. Explore Financial Tools
+- Visit the **Financial Empowerment Hub**.
+- Use the **SIP Calculator** to see how small monthly investments grow.
+- Check the **Tax Visualizer** to understand your tax slab.
+- Read the **Jargon Buster** cards to learn what terms like "Repo Rate" mean.
 
 ## Project Structure
 ```
